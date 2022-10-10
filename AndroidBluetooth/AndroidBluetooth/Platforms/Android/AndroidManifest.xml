@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+	<application android:allowBackup="true" android:icon="@mipmap/appicon" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true"></application>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+
+	<!-- 2022.08.29 [김재환] Google play 검색 필터를 우회합니다. (카메라 없는 디바이스에서도 검색이 가능합니다.)-->
+	<!-- 참조 : https://developer.android.com/guide/topics/manifest/uses-feature-element?hl=ko -->
+	<uses-feature android:name="android.hardware.camera" android:required="false" />
+	<uses-feature android:name="android.hardware.camera2" android:required="false" />
+	<uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+
+	<!-- 2022.08.29 [김재환] 31이상(Android 12) 권한 설정입니다. -->
+	<!-- 권한 설정 참조 https://developer.android.com/guide/topics/connectivity/bluetooth/permissions?hl=ko -->
+	<uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+	<uses-permission android:name="android.permission.BLUETOOTH_SCAN" android:usesPermissionFlags="neverForLocation"/>
+	<uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+
+	<!-- 2022.08.29 [김재환] 30이하(Android 11)-->
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30"/>
+	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" android:maxSdkVersion="30"/>
+
+	<!-- 2022.08.29 [김재환] 29이상(Android 10) Android 11이하 권한 설정입니다.-->
+	<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+	<uses-feature android:name="android.hardware.bluetooth_le" android:required="true" />
+	<uses-feature android:name="android.hardware.bluetooth" android:required="true"/>
+</manifest>
